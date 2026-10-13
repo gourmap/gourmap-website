@@ -103,3 +103,78 @@ a:hover {
   display: inline-block;
   margin-top: 40px;
 }
+
+.report-form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 24px 0 32px;
+  text-align: left;
+}
+
+.report-form label {
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+.report-form .optional {
+  font-weight: 400;
+  opacity: 0.5;
+}
+
+.report-form input,
+.report-form select,
+.report-form textarea {
+  font: inherit;
+  font-size: 16px;
+  color: #333;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  padding: 12px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.report-form input:focus,
+.report-form select:focus,
+.report-form textarea:focus {
+  outline: 2px solid #333;
+  outline-offset: 1px;
+}
+
+.report-form button {
+  font: inherit;
+  font-weight: 500;
+  color: #fff;
+  background: #333;
+  border: 0;
+  border-radius: 10px;
+  padding: 14px;
+  margin-top: 24px;
+  cursor: pointer;
+}
+
+.report-form button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.form-note,
+.form-status {
+  font-size: 14px;
+  line-height: 22px;
+  margin: 0;
+}
+
+.form-status {
+  opacity: 1;
+  color: #b3261e;
+}
+
+.hp {
+  position: absolute;
+  left: -9999px;
+  height: 0;
+  overflow: hidden;
+}
