@@ -1,19 +1,5 @@
-@font-face {
-  font-family: 'Inter';
-  font-weight: 400;
-  font-display: swap;
-  src: url('assets/fonts/Inter-Regular.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Inter';
-  font-weight: 500;
-  font-display: swap;
-  src: url('assets/fonts/Inter-Medium.woff2') format('woff2');
-}
-
 :root {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif, "System Default", sans-serif;
   background-color: #F8F3EC;
   color: #333;
 }
@@ -88,6 +74,7 @@ header h1 {
 h1 {
   font-size: 50px;
   font-weight: 500;
+  line-height: 1.05em;
   color: #333;
   padding: 0;
 }
@@ -146,10 +133,12 @@ footer a {
 a {
   color: #000;
   text-decoration: none;
+  opacity: 0.5;
 }
 
 a:hover {
   text-decoration: underline;
+  opacity: 0.5;
 }
 
 .back {
