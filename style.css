@@ -113,10 +113,24 @@ footer {
   justify-content: space-between;
   align-items: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 20px 0;
-  border-top: 1px solid #00000020;
-  margin-top: 40px;
+}
+
+footer hr {
+  width: 100%;
+  border: none;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: none;
+}
+
+footer .bottom {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
 }
 
 footer .links {
@@ -128,6 +142,16 @@ footer .links {
 footer a {
   margin-left: 24px;
   opacity: 0.5;
+}
+
+footer .socials {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+footer .socials img {
+  width: 20px;
 }
 
 a {
