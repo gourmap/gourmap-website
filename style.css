@@ -35,7 +35,7 @@ img {
 h1 {
   font-size: 44px;
   font-weight: 600;
-  line-height: 80%;
+  line-height: 110%;
   color: #000;
   margin: 20px 0;
   padding: 0;
@@ -123,6 +123,7 @@ header {
 
 header h1 {
   text-align: center;
+  max-width: 15ch;
 }
 
 header .intro {
