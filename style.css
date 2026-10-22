@@ -1,12 +1,28 @@
-:root {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif, "System Default", sans-serif;
-  background-color: #F8F3EC;
-  color: #333;
+@font-face {
+  font-family: "SN Pro";
+  src: url(/assets/fonts/SNPro-VariableRegular.woff2) format("woff2-variations");
+  font-weight: 200 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SN Pro";
+  src: url(/assets/fonts/SNPro-VariableItalic.woff2) format("woff2-variations");
+  font-weight: 200 900;
+  font-style: italic;
+}
+
+* {
+  font-family: 'SN Pro', system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.8%;
+  line-height: 160%;
 }
 
 body {
   padding: 0;
-  margin: 0;
+  margin: 0 20px;
+  background-color: #F8F3EC;
+  color: #333;
 }
 
 img {
@@ -14,23 +30,43 @@ img {
   padding: 20px 0;
 }
 
-nav {
-  max-width: 800px;
-  margin: 0 auto;
-  justify-content: space-between;
-  align-items: center;
-  display: flex;
-  margin-top: 8px;
-}
+/* ------ Texts ------ */
 
-nav .logo {
-  font: inherit;
-  font-weight: 500;
-  font-size: 22px;
+h1 {
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 120%;
   color: #000;
+  margin: 20px 0;
+  padding: 0;
 }
 
-nav button {
+h2 {
+  font-size: 22px;
+  font-weight: 500;
+  color: #000;
+  margin: 32px 0 8px;
+}
+
+p {
+  font-size: 16px;
+  margin: 0;
+}
+
+p span {
+  margin: 0 4px;
+}
+
+a {
+  color: #EF5735;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
   font: inherit;
   font-weight: 500;
   color: #fff;
@@ -38,78 +74,94 @@ nav button {
   border: 0;
   border-radius: 999px;
   padding: 8px 14px;
+  text-decoration: none;
+  cursor: pointer;
+
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+button img {
+  height: 20px;
+  padding: 0;
+  margin-bottom: 4px;
+}
+
+/* ------ Navigation ------ */
+
+nav {
+  max-width: 1000px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+nav .logo {
+  height: 28px;
+}
+
+nav button {
   cursor: not-allowed;
   opacity: 0.3;
 }
 
-header, section, footer {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 8px 20px;
-  text-align: center;
-}
+/* ------ Header ------ */
 
 header {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
   justify-content: space-between;
   align-items: center;
   display: flex;
   flex-direction: column;
+  padding: 20px 0;
 }
 
 header h1 {
   text-align: center;
-  margin: 20px 0 8px 0;
 }
 
-.container p, ul, h2, h1 {
-  text-align: left;
-}
-
-.container ul {
-  opacity: 0.5;
-  line-height: 26px;
-  padding-left: 20px;
-}
-
-h1 {
-  font-size: 50px;
-  font-weight: 500;
-  line-height: 1.05em;
-  color: #333;
-  padding: 0;
-}
-
-.container h1 {
-  font-size: 36px;
-}
-
-.intro {
-  font-size: 22px;
+header .intro {
+  font-size: 20px;
   font-weight: 400;
-  line-height: 1.4em;
   opacity: 0.7;
   padding: 0;
   margin: 0 0 32px 0;
   max-width: 600px;
 }
 
-h2 {
-  font-size: 22px;
-  font-weight: 500;
-  color: #333;
-  margin: 32px 0 8px;
+/* ------ Main ------ */
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 20px 0;
 }
 
-p {
-  font-size: 16px;
-  line-height: 26px;
+main p, ul, h2, h1 {
+  text-align: left;
 }
 
-p span {
-  margin: 0 4px;
+main ul {
+  padding-left: 20px;
 }
+
+main button {
+  display: inline-block;
+  margin-top: 40px;
+}
+
+/* ------ Footer ------ */
 
 footer {
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
   justify-content: space-between;
   align-items: center;
   display: flex;
@@ -131,12 +183,30 @@ footer .bottom {
   align-items: center;
   display: flex;
   flex-direction: row;
+  margin-top: 16px;
 }
 
 footer .links {
   align-items: center;
   display: flex;
   flex-direction: row;
+}
+
+footer .links a {
+  color: #000;
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+  footer .bottom {
+    align-items: start;
+  }
+
+  footer .links {
+    flex-direction: column;
+    align-items: end;
+    gap: 8px;
+  }
 }
 
 footer a {
@@ -148,27 +218,14 @@ footer .socials {
   align-items: center;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 footer .socials img {
   width: 20px;
 }
 
-a {
-  color: #000;
-  text-decoration: none;
-  opacity: 0.5;
-}
-
-a:hover {
-  text-decoration: underline;
-  opacity: 0.5;
-}
-
-.back {
-  display: inline-block;
-  margin-top: 40px;
-}
+/* ------ Form ------ */
 
 .report-form {
   display: flex;
@@ -210,15 +267,7 @@ a:hover {
 }
 
 .report-form button {
-  font: inherit;
-  font-weight: 500;
-  color: #fff;
-  background: #333;
-  border: 0;
-  border-radius: 999px;
-  padding: 14px;
   margin-top: 24px;
-  cursor: pointer;
 }
 
 .report-form button:disabled {
@@ -229,7 +278,6 @@ a:hover {
 .form-note,
 .form-status {
   font-size: 14px;
-  line-height: 22px;
   margin: 0;
 }
 
