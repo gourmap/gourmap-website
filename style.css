@@ -1,26 +1,18 @@
 @font-face {
-  font-family: "SN Pro";
-  src: url(/assets/fonts/SNPro-VariableRegular.woff2) format("woff2-variations");
-  font-weight: 200 900;
+  font-family: "Bagoss Medium";
+  src: url(assets/fonts/BagossStandard-TRIAL-Medium.woff2) format("woff2");
   font-style: normal;
-}
-@font-face {
-  font-family: "SN Pro";
-  src: url(/assets/fonts/SNPro-VariableItalic.woff2) format("woff2-variations");
-  font-weight: 200 900;
-  font-style: italic;
+  font-weight: 500;
 }
 
-* {
-  font-family: 'SN Pro', system-ui, sans-serif;
-  font-weight: 400;
-  letter-spacing: -0.8%;
-  line-height: 160%;
+:root {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif, "System Default", sans-serif;;
+  line-height: 1.4;
 }
 
 body {
   padding: 0;
-  margin: 0 20px;
+  margin: 70px 0 0 0;
   background-color: #F8F3EC;
   color: #333;
 }
@@ -30,12 +22,17 @@ img {
   padding: 20px 0;
 }
 
+.mobile-only {
+  display: none;
+}
+
 /* ------ Texts ------ */
 
 h1 {
-  font-size: 44px;
-  font-weight: 600;
-  line-height: 110%;
+  /* font-family: 'Bagoss Medium', serif; */
+  font-size: 54px;
+  font-weight: 500;
+  line-height: 1.1;
   color: #000;
   margin: 20px 0;
   padding: 0;
@@ -68,6 +65,7 @@ a:hover {
 
 button {
   font: inherit;
+  font-size: 15px;
   font-weight: 500;
   color: #fff;
   background: #000;
@@ -84,28 +82,72 @@ button {
 }
 
 button img {
-  height: 20px;
+  height: 15px;
   padding: 0;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 /* ------ Navigation ------ */
 
 nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #F8F3EC;
+  z-index: 999;
+}
+
+nav section {
   max-width: 1000px;
   margin: 0 auto;
+  padding: 0 20px;
   justify-content: space-between;
   align-items: center;
   display: flex;
 }
 
 nav .logo {
-  height: 28px;
+  height: 32px;
 }
 
 nav button {
   cursor: not-allowed;
   opacity: 0.3;
+}
+
+nav .menu {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
+}
+
+nav .menu a {
+  color: #000000;
+  opacity: 0.5;
+}
+
+nav .menu a:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+
+nav .menu-icon {
+  display: none;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+nav .menu-icon span {
+  width: 20px;
+  height: 2px;
+  background-color: #000000;
+  margin: 4px 0;
 }
 
 /* ------ Header ------ */
@@ -118,7 +160,7 @@ header {
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 20px 0;
+  padding: 20px;
 }
 
 header h1 {
@@ -128,11 +170,19 @@ header h1 {
 
 header .intro {
   font-size: 20px;
-  font-weight: 400;
-  opacity: 0.7;
+  font-weight: 450;
+  line-height: 26px;
+  opacity: 0.6;
   padding: 0;
   margin: 0 0 32px 0;
   max-width: 600px;
+}
+
+header .actions {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
 }
 
 /* ------ Main ------ */
@@ -141,7 +191,7 @@ main {
   max-width: 1000px;
   margin: 0 auto;
   text-align: center;
-  padding: 20px 0;
+  padding: 20px;
 }
 
 main p, ul, h2, h1 {
@@ -167,7 +217,7 @@ footer {
   align-items: center;
   display: flex;
   flex-direction: column;
-  padding: 20px 0;
+  padding: 20px;
 }
 
 footer hr {
@@ -176,6 +226,14 @@ footer hr {
   height: 1px;
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: none;
+}
+
+footer .top {
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
 }
 
 footer .bottom {
@@ -191,6 +249,7 @@ footer .links {
   align-items: center;
   display: flex;
   flex-direction: row;
+  gap: 24px;
 }
 
 footer .links a {
@@ -199,7 +258,6 @@ footer .links a {
 }
 
 footer a {
-  margin-left: 24px;
   opacity: 0.5;
 }
 
@@ -208,6 +266,7 @@ footer .socials {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  gap: 24px;
 }
 
 footer .socials img {
@@ -282,24 +341,56 @@ footer .socials img {
   overflow: hidden;
 }
 
-
-
 @media screen and (max-width: 768px) {
+  .mobile-only {
+    display: flex;
+  }
+
   h1 {
     font-size: 38px;
+  }
+
+  nav .menu-icon {
+    display: flex;
+  }
+
+  nav .menu {
+    display: none;
+    align-items: center;
+    flex-direction: column;
+    gap: 2px;
+    background: #fff;
+    border-radius: 16px;
+    position: absolute;
+    top: 70px;
+    left: 16px;
+    width: calc(100% - 80px);
+    padding: 24px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  }
+
+  nav .menu a {
+    color: #000000;
+    opacity: 0.5;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+  }
+
+  nav .menu button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  nav button {
+    display: none;
   }
 
   header .intro {
     font-size: 18px;
   }
 
-  footer .bottom {
-    align-items: start;
-  }
-
-  footer .links {
+  header .actions, footer .top, footer .bottom {
     flex-direction: column;
-    align-items: end;
-    gap: 8px;
   }
 }
