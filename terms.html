@@ -7,6 +7,7 @@
     <meta name="description" content="The terms that apply when you use the Gourmap app and website." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://gourmap.app/terms.html" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.png">
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Gourmap" />
@@ -16,28 +17,29 @@
     <meta property="og:image" content="https://gourmap.app/assets/images/mockup.png" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Inter-Regular.woff2" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Inter-Medium.woff2" crossorigin />
     <link rel="stylesheet" href="style.css" />
 
     <title>Terms of Service – Gourmap</title>
+    <script src="assets/js/site-nav.js" defer></script>
+    <script src="assets/js/site-footer.js" defer></script>
   </head>
   <body>
-    <main class="container">
+    <site-nav></site-nav>
+    <main>
       <section>
         <h1>Terms of Service</h1>
-        <p>Last updated: 4 September 2026</p>
+        <p>Last updated: 19 October 2026</p>
         <p>By creating an account or using Gourmap, you agree to these Terms of Service and to our <a href="privacy.html">Privacy Policy</a>.</p>
 
         <h2>The service</h2>
-        <p>Gourmap is a mobile app for logging restaurant visits with photos, video, ratings, and notes, and for sharing them with friends. Gourmap is free of charge. Restaurant information is provided for informational purposes and may be inaccurate or out of date.</p>
+        <p>Gourmap is a mobile app for logging restaurant visits with photos, ratings, and stories, and for sharing them with friends. Gourmap is free of charge. Restaurant information is provided for informational purposes and may be inaccurate or out of date.</p>
 
         <h2>Your account</h2>
-        <p>You must be at least 16 years old. You are responsible for keeping your login details secure and for everything that happens under your account. You may delete your account at any time from the app settings.</p>
+        <p>You must be at least 16 years old. You are responsible for keeping access to your sign-in method (Apple, Google, or your email) secure and for everything that happens under your account. You may delete your account at any time from the app settings.</p>
 
         <h2>Your content</h2>
-        <p>You keep ownership of the photos, video, and text you post. You grant Gourmap a non-exclusive, worldwide, royalty-free licence to store, display, and distribute that content within the service so that it can be shown to you and, subject to your privacy setting, to other users. This licence ends when you delete the content or your account, except where it has been shared by others or is needed to comply with the law.</p>
-        <p>You must own or have the right to share everything you post, including the people who appear in your photos and video.</p>
+        <p>You keep ownership of the photos and text you post. You grant Gourmap a non-exclusive, worldwide, royalty-free licence to store, display, and distribute that content within the service so that it can be shown to you and to the other users who are allowed to see it, as described in our <a href="privacy.html">Privacy Policy</a>. This licence ends when you delete the content or your account, except where it has been shared by others or is needed to comply with the law.</p>
+        <p>You must own or have the right to share everything you post, including the people who appear in your photos.</p>
 
         <h2>Acceptable use</h2>
         <p>You agree not to post content that is illegal, harassing, hateful, sexually explicit, violent, or that infringes someone else's rights, and not to impersonate others, spam, scrape, or attempt to disrupt or reverse engineer the service. We have no tolerance for abusive content or behaviour. You can report content or block users from within the app; we review reports and remove content that breaches these terms, usually within 24 hours, and may suspend or terminate accounts that do so.</p>
@@ -49,7 +51,7 @@
         <p>Gourmap is provided "as is" without warranties of any kind. To the extent permitted by law, we are not liable for any indirect or consequential loss arising from your use of the service, and our total liability is limited to the amount you paid us, which is currently nothing.</p>
 
         <h2>Third-party services</h2>
-        <p>Gourmap uses maps and restaurant data from third parties such as Mapbox and Google. Their terms apply to that data. The app is distributed through the Apple App Store and Google Play, whose terms also apply.</p>
+        <p>Gourmap uses maps and restaurant data from Apple. Apple's terms apply to that data. The app is distributed through the Apple App Store, whose terms also apply.</p>
 
         <h2>Governing law</h2>
         <p>These terms are governed by the laws of The Netherlands. Disputes will be brought before the competent court in The Netherlands, unless mandatory consumer law says otherwise.</p>
@@ -60,20 +62,8 @@
         <h2>Contact</h2>
         <p>Ambachtsherenpad 81, 2722BS Zoetermeer<br><br>Gourmap is registered with the Chamber of Commerce in the Netherlands under number 96004592. Our VAT number is 8674.24.746.B.01.<br><br>Email: <a href="mailto:info@gourmap.app">info@gourmap.app</a></p>
 
-        <a class="back" href="index.html">Back to Home</a>
       </section>
     </main>
-    <footer>
-      <p>
-      <a href="privacy.html">Privacy Policy</a>
-      <span>•</span>
-      <a href="terms.html">Terms of Service</a>
-      <span>•</span>
-      <a href="support.html">Support</a>
-      <span>•</span>
-      <a href="mailto:info@gourmap.app">Contact</a>
-      </p>
-      <p>© <script>document.write(new Date().getFullYear())</script> Gourmap</p>
-    </footer>
+    <site-footer></site-footer>
   </body>
 </html>

@@ -7,51 +7,37 @@
     <meta name="description" content="Share your taste of food with friends. Log restaurant visits, keep a map of places you love, and see where your friends eat." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://gourmap.app/" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.png">
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Gourmap" />
     <meta property="og:title" content="Gourmap" />
     <meta property="og:description" content="Share your taste of food with friends. Log restaurant visits, keep a map of places you love, and see where your friends eat." />
     <meta property="og:url" content="https://gourmap.app/" />
-    <meta property="og:image" content="https://gourmap.app/assets/images/mockup.png" />
+    <meta property="og:image" content="https://gourmap.app/assets/images/mockups.png" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Inter-Regular.woff2" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Inter-Medium.woff2" crossorigin />
     <link rel="stylesheet" href="style.css" />
 
     <title>Gourmap</title>
+    <script src="assets/js/site-nav.js" defer></script>
+    <script src="assets/js/site-footer.js" defer></script>
   </head>
   <body>
+    <site-nav></site-nav>
     <header>
-        <h1>gourmap</h1>
-        <p class="intro">Share your taste of food with friends.</p>
-        <img src="assets/images/mockup.png" loading="lazy" alt="Gourmap app screens showing a restaurant map and visit log" style="max-height: 500px;"/>
-        <p>Coming soon to iOS and Android!</p>
-        <img
-          src="assets/images/appstore.svg"
-          loading="lazy"
-          alt="Download on the App Store (coming soon)"
-          style="height: 60px; opacity: 0.1;"
-        />
-        <img
-          src="assets/images/playstore.svg"
-          loading="lazy"
-          alt="Get it on Google Play (coming soon)"
-          style="height: 60px; opacity: 0.1;"
-        />
+      <h1>Share your taste of food with friends.</h1>
+      <p class="intro">Gourmap is a private social network for seeing your people's favorite food places. Add your visits, share your experiences with others, and know where you want to eat.</p>
+      <div class="actions">
+        <button style="cursor: not-allowed; opacity: 0.3;"><img src="assets/icons/apple.svg" alt="apple-logo"> Get the app soon</button>
+        <button style="background-color: #0096F8; cursor: not-allowed; opacity: 0.3;"><img src="assets/icons/testflight.svg" alt="apple-testflight"> Test the app soon</button>
+      </div>
     </header>
-    <footer>
-      <p>
-      <a href="privacy.html">Privacy Policy</a>
-      <span>•</span>
-      <a href="terms.html">Terms of Service</a>
-      <span>•</span>
-      <a href="support.html">Support</a>
-      <span>•</span>
-      <a href="mailto:info@gourmap.app">Contact</a>
-      </p>
-      <p>© <script>document.write(new Date().getFullYear())</script> Gourmap</p>
-    </footer>
+    <main>
+      <section>
+        <img src="assets/images/mockups.png" loading="lazy" alt="Gourmap app screens showing a restaurant map and visit log" style="max-height: 680px;"/>
+      </section>
+    </main>
+    <site-footer></site-footer>
   </body>
 </html>

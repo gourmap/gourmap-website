@@ -7,6 +7,7 @@
     <meta name="description" content="Get help with the Gourmap app: contact, account deletion, and frequently asked questions." />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://gourmap.app/support.html" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.png">
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Gourmap" />
@@ -16,47 +17,33 @@
     <meta property="og:image" content="https://gourmap.app/assets/images/mockup.png" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Inter-Regular.woff2" crossorigin />
-    <link rel="preload" as="font" type="font/woff2" href="assets/fonts/Inter-Medium.woff2" crossorigin />
     <link rel="stylesheet" href="style.css" />
 
     <title>Support – Gourmap</title>
+    <script src="assets/js/site-nav.js" defer></script>
+    <script src="assets/js/site-footer.js" defer></script>
   </head>
   <body>
-    <main class="container">
+    <site-nav></site-nav>
+    <main>
       <section>
         <h1>Support</h1>
         <p>Need help with Gourmap? Email us at <a href="mailto:info@gourmap.app">info@gourmap.app</a> and we will get back to you within a few business days.</p>
 
         <h2>How do I delete my account?</h2>
-        <p>Open your profile in the app, go to Settings, and choose Delete account. This removes your profile, visits, photos, video, comments, and likes. See the <a href="privacy.html#delete-account">Privacy Policy</a> for details.</p>
+        <p>Open Settings in the app, go to Account, and choose Delete My Account. This removes your profile, visits, photos, comments, likes, wanted restaurants, and follows. See the <a href="privacy.html#delete-account">Privacy Policy</a> for details.</p>
 
-        <h2>How do I make my account private?</h2>
-        <p>Open Settings in the app and turn on Private account. Only followers you approve will see your visits.</p>
+        <h2>Who can see my visits?</h2>
+        <p>Only you, the people whose follow request you have approved, and friends you tag in a visit. To remove a follower, open your followers list on your profile and use the "..." menu next to them.</p>
 
         <h2>How do I report content or block someone?</h2>
-        <p>Use the menu on a visit, comment, or profile to report it or to block the user. You can also email us with a link or screenshot.</p>
+        <p>Use the menu on a visit, comment, or profile in the app to report it. To stop someone from following you or seeing your visits, open their profile and choose Block. You can also <a href="report.html">report a user, visit, or comment here</a>, or email us with a link or screenshot.</p>
 
-        <h2>I forgot my password</h2>
-        <p>Tap Forgot password on the login screen and we will email you a reset link.</p>
+        <h2>How do I sign in?</h2>
+        <p>Gourmap has no passwords. Sign in with Apple, with Google, or with a one-time code that we email to you. If the code does not arrive, check your spam folder or request a new one.</p>
 
-        <h2>Can I turn off notifications?</h2>
-        <p>Yes. Open Settings in the app and switch notifications off. You can also do this in your phone's system settings.</p>
-
-        <a class="back" href="index.html">Back to Home</a>
       </section>
     </main>
-    <footer>
-      <p>
-      <a href="privacy.html">Privacy Policy</a>
-      <span>•</span>
-      <a href="terms.html">Terms of Service</a>
-      <span>•</span>
-      <a href="support.html">Support</a>
-      <span>•</span>
-      <a href="mailto:info@gourmap.app">Contact</a>
-      </p>
-      <p>© <script>document.write(new Date().getFullYear())</script> Gourmap</p>
-    </footer>
+    <site-footer></site-footer>
   </body>
 </html>

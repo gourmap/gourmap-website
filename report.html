@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Gourmap" />
+    <meta name="description" content="Report a user, visit, or comment on Gourmap." />
+    <meta name="robots" content="noindex, follow" />
+    <link rel="canonical" href="https://gourmap.app/report.html" />
+    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.png">
+
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Report – Gourmap</title>
+    <script src="assets/js/site-nav.js" defer></script>
+    <script src="assets/js/site-footer.js" defer></script>
+  </head>
+  <body>
+    <site-nav></site-nav>
+    <main>
+      <section>
+        <h1>Report</h1>
+        <p>Thank you for helping keep Gourmap friendly. Tell us what is wrong and we will review it. Content that breaks our <a href="terms.html">Terms of Service</a> is removed, and accounts that keep breaking them are removed too.</p>
+
+        <form id="report-form" class="report-form" novalidate>
+          <label for="type">What are you reporting?</label>
+          <select id="type" name="type" required>
+            <option value="user">A user</option>
+            <option value="visit">A visit</option>
+            <option value="comment">A comment</option>
+            <option value="other">Something else</option>
+          </select>
+          <p id="item-note" class="form-note" hidden>We already know which item you are reporting from the app.</p>
+
+          <div id="reference-field">
+            <label for="reference">Where can we find it?</label>
+            <input id="reference" name="reference" type="text" maxlength="500" placeholder="Username, restaurant name, or a link" />
+          </div>
+
+          <label for="reason">Why are you reporting it?</label>
+          <select id="reason" name="reason" required>
+            <option value="" selected disabled>Choose a reason</option>
+            <option value="harassment">Harassment or bullying</option>
+            <option value="hate">Hate speech</option>
+            <option value="sexual">Nudity or sexual content</option>
+            <option value="violence">Violence or threats</option>
+            <option value="spam">Spam or scam</option>
+            <option value="impersonation">Pretending to be someone else</option>
+            <option value="illegal">Illegal content</option>
+            <option value="other">Something else</option>
+          </select>
+
+          <label for="details">Anything else we should know? <span class="optional">(optional)</span></label>
+          <textarea id="details" name="details" rows="5" maxlength="2000"></textarea>
+
+          <label for="email">Your email <span class="optional">(optional)</span></label>
+          <input id="email" name="email" type="email" maxlength="254" autocomplete="email" placeholder="So we can follow up if needed" />
+
+          <div class="hp" aria-hidden="true">
+            <label for="website">Leave this field empty</label>
+            <input id="website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <button id="submit" type="submit">Send report</button>
+          <p id="status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+
+        <div id="thanks" hidden>
+          <h2>Thank you</h2>
+          <p>We received your report and will review it. If someone is in immediate danger, please contact your local emergency services.</p>
+        </div>
+
+        <p>You can also block a user from their profile in the app, so they can no longer follow you or see your visits. Questions? Email <a href="mailto:report@gourmap.app">report@gourmap.app</a>.</p>
+
+        <a class="back" href="support.html"><button>Back to Support</button></a>
+      </section>
+    </main>
+    <site-footer></site-footer>
+
+    <script>
+      (function () {
+        var ENDPOINT = 'https://jkqvxhfbtbmbrffufrif.supabase.co/functions/v1/submit-report';
+        var UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+        var TYPES = ['user', 'visit', 'comment', 'other'];
+
+        var form = document.getElementById('report-form');
+        var typeSelect = document.getElementById('type');
+        var referenceField = document.getElementById('reference-field');
+        var referenceInput = document.getElementById('reference');
+        var itemNote = document.getElementById('item-note');
+        var statusLine = document.getElementById('status');
+        var submitButton = document.getElementById('submit');
+
+        // The app links here as report.html?type=visit&id=<uuid>. With an id the item is fixed;
+        // without one (opened from the website) the reporter has to say where to find it.
+        var params = new URLSearchParams(window.location.search);
+        var presetType = params.get('type');
+        var presetID = params.get('id');
+        var hasItem = TYPES.indexOf(presetType) !== -1 && presetType !== 'other' && UUID.test(presetID || '');
+
+        if (TYPES.indexOf(presetType) !== -1) typeSelect.value = presetType;
+        if (hasItem) {
+          typeSelect.disabled = true;
+          referenceField.hidden = true;
+          itemNote.hidden = false;
+        }
+
+        function showStatus(message) {
+          statusLine.textContent = message;
+        }
+
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+          showStatus('');
+
+          var reason = document.getElementById('reason').value;
+          var reference = referenceInput.value.trim();
+          var details = document.getElementById('details').value.trim();
+          var email = document.getElementById('email').value.trim();
+
+          if (!reason) return showStatus('Please choose a reason.');
+          if (!hasItem && !reference) return showStatus('Please tell us where to find what you are reporting.');
+          if (reason === 'other' && !details) return showStatus('Please tell us what is wrong.');
+          if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return showStatus('Please enter a valid email address or leave it empty.');
+
+          var payload = {
+            type: hasItem ? presetType : typeSelect.value,
+            reason: reason,
+            details: details,
+            email: email,
+            website: document.getElementById('website').value
+          };
+          if (hasItem) payload.id = presetID;
+          else payload.reference = reference;
+
+          submitButton.disabled = true;
+          showStatus('Sending…');
+
+          fetch(ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+          })
+            .then(function (response) {
+              return response.json().catch(function () { return {}; }).then(function (body) {
+                if (!response.ok) throw new Error(body.error || 'Something went wrong. Please try again.');
+              });
+            })
+            .then(function () {
+              form.hidden = true;
+              document.getElementById('thanks').hidden = false;
+            })
+            .catch(function (error) {
+              submitButton.disabled = false;
+              showStatus(error.message === 'Failed to fetch' ? 'Could not reach the server. Check your connection and try again.' : error.message);
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>
