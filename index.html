@@ -1,43 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="author" content="Gourmap" />
-    <meta name="description" content="Share your taste of food with friends. Log restaurant visits, keep a map of places you love, and see where your friends eat." />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://gourmap.app/" />
-    <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.png">
 
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Gourmap" />
-    <meta property="og:title" content="Gourmap" />
-    <meta property="og:description" content="Share your taste of food with friends. Log restaurant visits, keep a map of places you love, and see where your friends eat." />
-    <meta property="og:url" content="https://gourmap.app/" />
-    <meta property="og:image" content="https://gourmap.app/assets/images/mockups.png" />
-    <meta name="twitter:card" content="summary_large_image" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="author" content="Gourmap" />
+  <meta name="description"
+    content="Share your taste of food with friends. Log restaurant visits, keep a map of places you love, and see where your friends eat." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://gourmap.app/" />
+  <link rel="icon" type="image/svg+xml" href="/assets/images/favicon.png">
 
-    <link rel="stylesheet" href="style.css" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Gourmap" />
+  <meta property="og:title" content="Gourmap" />
+  <meta property="og:description"
+    content="Share your taste of food with friends. Log restaurant visits, keep a map of places you love, and see where your friends eat." />
+  <meta property="og:url" content="https://gourmap.app/" />
+  <meta property="og:image" content="https://gourmap.app/assets/images/mockups.png" />
+  <meta name="twitter:card" content="summary_large_image" />
 
-    <title>Gourmap</title>
-    <script src="assets/js/site-nav.js" defer></script>
-    <script src="assets/js/site-footer.js" defer></script>
-  </head>
-  <body>
-    <site-nav></site-nav>
-    <header>
-      <h1>Share your taste of food with friends.</h1>
-      <p class="intro">Gourmap is a private social network for seeing your people's favorite food places. Add your visits, share your experiences with others, and know where you want to eat.</p>
-      <div class="actions">
-        <button style="cursor: not-allowed; opacity: 0.3;"><img src="assets/icons/apple.svg" alt="apple-logo"> Get the app soon</button>
-        <button style="background-color: #0096F8; cursor: not-allowed; opacity: 0.3;"><img src="assets/icons/testflight.svg" alt="apple-testflight"> Test the app soon</button>
+  <link rel="stylesheet" href="style.css" />
+
+  <title>Gourmap</title>
+  <script src="assets/js/site-nav.js" defer></script>
+  <script src="assets/js/site-footer.js" defer></script>
+</head>
+
+<body>
+  <div class="h-grid">
+    <main class="home">
+      <div class="v-grid">
+        <site-nav></site-nav>
+        <section>
+          <h1>Share your taste of food with friends.</h1>
+          <p class="large">Gourmap is a private social network for seeing your people's favorite food places. Add your
+            visits, share your experiences with others, and know where you want to eat.</p>
+          <a href="index.html"><img src="assets/images/appstore-badge.svg"
+              style="height: 60px;"></a>
+          <img src="assets/images/mockup.png" alt="" class="mobile-only">
+        </section>
+        <site-footer></site-footer>
       </div>
-    </header>
-    <main>
-      <section>
-        <img src="assets/images/mockups.png" loading="lazy" alt="Gourmap app screens showing a restaurant map and visit log" style="max-height: 680px;"/>
-      </section>
     </main>
-    <site-footer></site-footer>
-  </body>
+    <div class="mockup-container">
+      <img src="assets/images/mockup.png" alt="">
+    </div>
+  </div>
+</body>
+
 </html>
